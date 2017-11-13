@@ -1,0 +1,14 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:grok="http://namespaces.zope.org/grok">
+  <include package="grok" />
+
+  <browser:defaultSkin name="tbskin" />
+  <grok:grok package="." />
+  <grok:grok package="uvcsite.tests.usermanagement" />
+  <grok:grok package="uvcsite.tests.simpleaddon" />
+
+
+
+</configure>
+
