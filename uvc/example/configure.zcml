@@ -5,8 +5,8 @@
 
   <browser:defaultSkin name="tbskin" />
   <grok:grok package="." />
-  <grok:grok package="uvcsite.tests.usermanagement" />
-  <grok:grok package="uvcsite.tests.simpleaddon" />
+  <grok:grok package="uvcsite.tests.fixtures.usermanagement" />
+  <grok:grok package="uvcsite.examples.simpleaddon" />
 
 
 
