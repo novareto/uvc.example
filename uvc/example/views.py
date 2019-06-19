@@ -9,16 +9,15 @@ import uvcsite
 from time import sleep
 from zope import interface
 
-from uvc.tbskin.resources import TBSkinViewlet
+#from uvc.tbskin.resources import TBSkinViewlet
 
 
-class TBSkinViewlet(TBSkinViewlet):
-    pass
+#class TBSkinViewlet(TBSkinViewlet):
+#    pass
 
 
-class Index(uvcsite.Page):
+class Index(uvcsite.browser.Page):
     grok.context(interface.Interface)
-
 
     def render(self):
         return u" HALLO WELT"
