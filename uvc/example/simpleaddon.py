@@ -119,7 +119,6 @@ class Addressbook(ProductRegistration):
         return True
 
     def factory(self, *args, **kwargs):
-        import pdb; pdb.set_trace()
         return contenttype.bind().get(self)()
 
 
