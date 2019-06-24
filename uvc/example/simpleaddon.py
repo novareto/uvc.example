@@ -13,7 +13,7 @@ import zope.security
 from io import StringIO
 from hurry.workflow.interfaces import IWorkflowInfo
 #from uvc.validation import validation
-from uvcsite.content.directive import productfolder
+from uvcsite.content.directive import contenttype
 #from uvcsite.content.productregistration import ProductMenuItem
 from uvcsite.content.productregistration import ProductRegistration
 from xml.dom.minidom import parseString
@@ -43,10 +43,10 @@ class IAdressBook(uvcsite.content.interfaces.IProductFolder):
     """ Marker Interface """
 
 
+@uvcsite.content.directive.schema(IContact)
 @zope.interface.implementer(IContact)
 class Contact(uvcsite.content.components.Content):
     grok.name(u'Kontakt')
-    uvcsite.content.directive.schema(IContact)
 
 
 @zope.interface.implementer(IAdressBook)
@@ -107,12 +107,20 @@ def handle_save(obj, event):
 #    def reg_name(self):
 #        return "adressbook"
 
-
+from abc import ABC, abstractmethod
 class Addressbook(ProductRegistration):
     grok.name('adressbook')
     grok.title('Adressbuch')
     grok.description('Beschreibung Entgeltnachweis')
-    productfolder('uvcsite.examples.simpleaddon.AdressBook')
+    contenttype(AdressBook)
+    key = "adressbook"
+
+    def available(self):
+        return True
+
+    def factory(self, *args, **kwargs):
+        import pdb; pdb.set_trace()
+        return contenttype.bind().get(self)()
 
 
 def kopf(c):
