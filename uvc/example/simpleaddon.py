@@ -9,33 +9,32 @@ import zope.schema
 import zope.interface
 import zope.component
 import zope.security
+from zope.interface import Interface
 
-from io import StringIO
 from hurry.workflow.interfaces import IWorkflowInfo
-#from uvc.validation import validation
+
+# from uvc.validation import validation
 from uvcsite.content.directive import contenttype
-#from uvcsite.content.productregistration import ProductMenuItem
+
+# from uvcsite.content.productregistration import ProductMenuItem
 from uvcsite.content.productregistration import ProductRegistration
-from xml.dom.minidom import parseString
 
 
 desc_name = (
-    u"""Wie ist Ihr <a rel="tooltip" href="#" """ +
-    u"""data-original-title="Default tooltip">Name</a>""")
+    u"""Wie ist Ihr <a rel="tooltip" href="#" """
+    + u"""data-original-title="Default tooltip">Name</a>"""
+)
 
 
 class IContact(uvcsite.content.interfaces.IContent):
 
-    name = zope.schema.TextLine(
-        title=u"Name",
-        description=desc_name,
-    )
+    name = zope.schema.TextLine(title=u"Name", description=desc_name)
 
     alter = zope.schema.TextLine(
         title=u"Alter",
         description=u"Wie ist ihr Alter",
         required=False,
-        #constraint=validation.validateZahl,
+        # constraint=validation.validateZahl,
     )
 
 
@@ -46,14 +45,14 @@ class IAdressBook(uvcsite.content.interfaces.IProductFolder):
 @uvcsite.content.directive.schema(IContact)
 @zope.interface.implementer(IContact)
 class Contact(uvcsite.content.components.Content):
-    grok.name(u'Kontakt')
+    grok.name(u"Kontakt")
 
 
 @zope.interface.implementer(IAdressBook)
 class AdressBook(uvcsite.content.components.ProductFolder):
-    grok.name('adressbook')
-    grok.title('Adressbuch')
-    grok.description('Adressbuch ...')
+    grok.name("adressbook")
+    grok.title("Adressbuch")
+    grok.description("Adressbuch ...")
     uvcsite.content.directive.contenttype(Contact)
 
     @property
@@ -66,8 +65,8 @@ class AdressBook(uvcsite.content.components.ProductFolder):
 
 
 class Stat(uvcsite.browser.Page):
-    grok.name('stat')
-    grok.title('Statistik LONG LONG LONG')
+    grok.name("stat")
+    grok.title("Statistik LONG LONG LONG")
     grok.context(AdressBook)
     viewName = "stat"
     title = "title"
@@ -76,42 +75,49 @@ class Stat(uvcsite.browser.Page):
         return "<div> <h1>Statistiks</h1> </div>"
 
 
-#@grok.subscribe(Contact, uvcsite.IAfterSaveEvent)
+# @grok.subscribe(Contact, uvcsite.IAfterSaveEvent)
 def handle_save(obj, event):
     sp = transaction.savepoint()
     wf = IWorkflowInfo(obj)
     try:
         1 / 0
         if True:
-            wf.fireTransition('review')
-            uvcsite.log('add Document in state review')
+            wf.fireTransition("review")
+            uvcsite.log("add Document in state review")
         else:
-            pdf = zope.component.getMultiAdapter((obj, event.request), name=u"pdf")
+            pdf = zope.component.getMultiAdapter(
+                (obj, event.request), name=u"pdf")
             pdf.create(fn="/tmp/kk/%s.pdf" % (obj.__name__))
-            wf.fireTransition('publish')
+            wf.fireTransition("publish")
     except:
         sp.rollback()
-        wf.fireTransition('progress')
+        wf.fireTransition("progress")
         uvcsite.logger.exception("ES IST EIN FEHLER AUFGETRETEN")
-        uvcsite.log('simpleaddon', e.__doc__)
     print("AfterSaveEvent")
 
 
-#class AddMenuEntry(ProductMenuItem):
-#    grok.name('Buddy erstellen')
-#    grok.title('Buddy erstellen')
-#    grok.context(zope.interface.Interface)
-#    grok.viewletmanager(uvcsite.IGlobalMenu)
-#
-#    @property
-#    def reg_name(self):
-#        return "adressbook"
+class AddMenuEntry(uvcsite.browser.layout.menu.MenuItem):
+    grok.name("Buddy erstellen")
+    grok.title("Buddy erstellen")
+    grok.context(zope.interface.Interface)
+    grok.adapts(
+        Interface,
+        Interface,
+        Interface,
+        uvcsite.browser.layout.slots.interfaces.IQuickLinks,
+    )
 
-from abc import ABC, abstractmethod
+    def url(self):
+        hf = uvcsite.interfaces.IHomeFolder(self.view.request.principal)
+        return grok.url(self.view.request, hf, u'adressbook/add')
+
+    title = u"Neuen Buddy erstellen"
+
+
 class Addressbook(ProductRegistration):
-    grok.name('adressbook')
-    grok.title('Adressbuch')
-    grok.description('Beschreibung Entgeltnachweis')
+    grok.name("adressbook")
+    grok.title("Adressbuch")
+    grok.description("Beschreibung Entgeltnachweis")
     contenttype(AdressBook)
     key = "adressbook"
 
@@ -126,7 +132,7 @@ def kopf(c):
     c.drawString(200, 200, u"Ich bin der KOPF")
 
 
-#class KontaktPdf(uvcsite.BasePDF):
+# class KontaktPdf(uvcsite.BasePDF):
 #    grok.context(IContact)
 #    grok.name('pdf')
 #
@@ -139,19 +145,19 @@ def kopf(c):
 #        c.showPage()
 #
 #
-#class KontaktXML(uvcsite.BaseXML):
+# class KontaktXML(uvcsite.BaseXML):
 #    grok.context(IContact)
 #    grok.name('xml')
 #    grok.title('kontakt.xml')
 #
 #    def generate(self):
 #        io = StringIO()
-        #w = XMLWriter(io, encoding="utf-8")
-        #kon = w.start('kontakt')
-        #w.start('basis')
-        #w.element('creator', self.request.principal.id)
-        #w.element('name', self.context.name)
-        #w.end()
-        #w.close(kon)
-        #io.seek(0)
+# w = XMLWriter(io, encoding="utf-8")
+# kon = w.start('kontakt')
+# w.start('basis')
+# w.element('creator', self.request.principal.id)
+# w.element('name', self.context.name)
+# w.end()
+# w.close(kon)
+# io.seek(0)
 #        self.xml_file.write(parseString(io.read()).toprettyxml(indent="  "))
