@@ -16,8 +16,9 @@ from zope import interface
 #    pass
 
 
+grok.templatedir('templates')
+
+
 class Index(uvcsite.browser.Page):
     grok.context(interface.Interface)
 
-    def render(self):
-        return u" HALLO WELT"

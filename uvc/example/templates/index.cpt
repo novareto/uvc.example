@@ -1,0 +1,63 @@
+<div id="landingpage">
+	<h1> Willkommen im Extranet </h1>
+  <p class="lead"> Lorem IPSIM </p>
+
+
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Unfallanzeigen</h5>
+					<p class="card-text">Bearbeiten Sie alles rund um die Unfallanzeige.</p>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item"> <i class="fas fa-list"></i>Meine Unfallanzeigen </li>
+					<li class="list-group-item"> <i class="fas fa-plus"></i> Unfallanzeige erstellen</li>
+					<li class="list-group-item"> <i class="fas fa-plus"></i> Eintrag im Verbandbuch</li>
+					<li class="list-group-item"> <i class="fas fa-list"></i>Unfallbelastung ansehen</li>
+				</ul>
+				<div class="card-body">
+					<a href="#" class="card-link">Card link</a>
+					<a href="#" class="card-link">Another link</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Entgeltnachweis</h5>
+					<p class="card-text">Bearbeiten Sie alles rund um den Entgeltnachweis.</p>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item"> <i class="fas fa-list"></i>Meine Entgeltnachweise</li>
+					<li class="list-group-item"> <i class="fas fa-plus"></i> Entgeltnachweis erstellen</li>
+					<li class="list-group-item"> <i class="fas fa-plus"></i> Digitalen Lohnnachweis ansehen</li>
+					<li class="list-group-item"> <i class="fas fa-list"></i> Kontoauszug ansehen</li>
+				</ul>
+				<div class="card-body">
+					<a href="#" class="card-link">Card link</a>
+					<a href="#" class="card-link">Another link</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Meine Einstellungen</h5>
+					<p class="card-text">Bearbeiten Sie alles rund um Ihren Account.</p>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item"> <i class="fas fa-list"></i> Meine Daten</li>
+					<li class="list-group-item"> <i class="fas fa-plus"></i> Stammdaten verwalten</li>
+					<li class="list-group-item"> <i class="fas fa-plus"></i> Passwort ändern</li>
+					<li class="list-group-item"> <i class="fas fa-plus"></i> Mitbenutzerverwaltung</li>
+					<li class="list-group-item"> <i class="fas fa-list"></i> Abmelden</li>
+				</ul>
+				<div class="card-body">
+					<a href="#" class="card-link">Card link</a>
+					<a href="#" class="card-link">Another link</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
