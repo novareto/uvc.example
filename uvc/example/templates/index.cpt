@@ -51,7 +51,7 @@
 					<li class="list-group-item"> <i class="fas fa-plus"></i> Stammdaten verwalten</li>
 					<li class="list-group-item"> <i class="fas fa-plus"></i> Passwort ändern</li>
 					<li class="list-group-item"> <i class="fas fa-plus"></i> Mitbenutzerverwaltung</li>
-					<li class="list-group-item"> <i class="fas fa-list"></i> Abmelden</li>
+					<li class="list-group-item"> <i class="fas fa-sign-out-alt"></i> Abmelden</li>
 				</ul>
 				<div class="card-body">
 					<a href="#" class="card-link">Card link</a>
