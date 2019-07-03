@@ -108,8 +108,10 @@ class AddMenuEntry(uvcsite.browser.layout.menu.MenuItem):
     )
 
     def url(self):
-        hf = uvcsite.interfaces.IHomeFolder(self.view.request.principal)
-        return grok.url(self.view.request, hf, u'adressbook/add')
+        hf = uvcsite.interfaces.IHomeFolder(self.view.request.principal, None)
+        if hf:
+            return grok.url(self.view.request, hf, u'adressbook/add')
+        return ""
 
     title = u"Neuen Buddy erstellen"
 
