@@ -100,12 +100,8 @@ class AddMenuEntry(uvcsite.browser.layout.menu.MenuItem):
     grok.name("Buddy erstellen")
     grok.title("Buddy erstellen")
     grok.context(zope.interface.Interface)
-    grok.adapts(
-        Interface,
-        Interface,
-        Interface,
-        uvcsite.browser.layout.slots.interfaces.IQuickLinks,
-    )
+    uvcsite.browser.layout.menu.menu(
+        uvcsite.browser.layout.slots.interfaces.IQuickLinks)
 
     def url(self):
         hf = uvcsite.interfaces.IHomeFolder(self.view.request.principal, None)
