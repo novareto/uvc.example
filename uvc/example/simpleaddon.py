@@ -96,11 +96,11 @@ def handle_save(obj, event):
     print("AfterSaveEvent")
 
 
-class AddMenuEntry(uvcsite.browser.layout.menu.MenuItem):
+class AddMenuEntry(uvc.menus.components.MenuItem):
     grok.name("Buddy erstellen")
     grok.title("Buddy erstellen")
     grok.context(zope.interface.Interface)
-    uvcsite.browser.layout.menu.menu(
+    uvc.menus.components.menu(
         uvcsite.browser.layout.slots.interfaces.IQuickLinks)
 
     def url(self):
