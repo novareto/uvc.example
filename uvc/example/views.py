@@ -1,24 +1,16 @@
 # -*- coding: utf-8 -*-
-# # Copyright (c) 2007-2017 NovaReto GmbH
-# # cklinger@novareto.de
-
+# # Copyright (c) 2007-2019 NovaReto GmbH
+# # cklinger@novareto.de 
 
 import grok
-import uvcsite
 
-from time import sleep
-from zope import interface
-
-#from uvc.tbskin.resources import TBSkinViewlet
-
-
-#class TBSkinViewlet(TBSkinViewlet):
-#    pass
+from zope.interface import Interface
+from uvcsite.browser import Page
 
 
 grok.templatedir('templates')
 
 
-class Index(uvcsite.browser.Page):
-    grok.context(interface.Interface)
-
+class LandingPage(Page):
+    grok.context(Interface)
+    grok.name('index')
