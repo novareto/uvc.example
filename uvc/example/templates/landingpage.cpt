@@ -1,0 +1,40 @@
+<h1> Willkommen im Extranet </h1>
+
+<p class="description"> Herzlichen Glückwunsch Sie haben das professionelle Open-Source UVCSite erfolgreich installiert. </p>
+
+<div>
+  <p class="discreet">Wenn Sie diese Seite anstelle des von Ihnen erwarteten Inhalts sehen, hat der Betreiber dieser Website gerade erst Plone installiert. Bitte benachrichtigen Sie NICHT das Plone Team, sondern den Betreiber dieser Website.</p>
+  <h2>So starten Sie!</h2>
+  <p>Bevor Sie sich mit Ihrer neuen Plone-Website vertraut machen, stellen Sie bitte sicher, dass</p>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-6">
+		<div class="card">
+			<img tal:attributes="src 'fanstatic/uvc.example/uaz.jpg'" class="card-img" alt="...">
+			<div class="card-body">
+				<h5 class="card-title">Unfallanzeige</h5>
+				<p class="card-text">Hier können Sie Ihre Unfallanzeigen verwalten.</p>
+				<a class="btn btn-secondary btn-sm" href=""> <i class="fas fa-list"></i> Meine Unfallanzeigen </a>
+				<a class="btn btn-secondary btn-sm" href=""> <i class="fas fa-plus-circle"></i> Neue Unfallanzeige anlegen </a>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="card">
+			<img tal:attributes="src 'fanstatic/uvc.example/adbook.jpg'" class="card-img" alt="...">
+			<div class="card-body">
+				<h5 class="card-title">Kontakte</h5>
+				<p class="card-text">Hier können Sie Ihre Kontakte verwalten.</p>
+				<a class="btn btn-secondary btn-sm" href=""> <i class="fas fa-list"></i> Meine Unfallanzeigen </a>
+				<a class="btn btn-secondary btn-sm" href=""> <i class="fas fa-plus-circle"></i> Neue Unfallanzeige anlegen </a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
