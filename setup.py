@@ -23,12 +23,12 @@ setup(name='uvc.example',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          # -*- Extra requirements: -*-
+          'dolmen.security.policies'
       ],
       entry_points={
          'fanstatic.libraries': [
             'uvc.example = uvc.example.resources:library',
             ],
-         'z3c.autoinclude.plugin': 'target=uvcsite', 
+         'z3c.autoinclude.plugin': 'target=uvcsite',
       }
       )
