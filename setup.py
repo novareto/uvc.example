@@ -23,6 +23,7 @@ setup(name='uvc.example',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'uvc.configpanel',
           'dolmen.security.policies'
       ],
       entry_points={
